@@ -11,4 +11,6 @@ RUN npm i
 RUN cd frontend && npm i && npm run build
 
 EXPOSE 3000
-CMD [ "set NODE_ENV=production && node app.js" ]
+RUN set NODE_ENV=production
+
+CMD ["node", "app.js"]
