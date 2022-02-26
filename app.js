@@ -162,6 +162,6 @@ app.get('/api/users/', function (req, res) {
 app.get('/get-base-url', function(req, res) {
   res.status(200).json({url: process.env.BASE_URL.trim()});
 });
-server.listen(process.env.PORT)
+server.listen(3000)
 
-console.log(`App run on ${process.env.PORT}`);
+console.log(`App run on ${3000}`);
