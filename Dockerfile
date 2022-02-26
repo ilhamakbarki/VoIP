@@ -1,6 +1,8 @@
 FROM node:14.17.6 as app
 
 USER root
+RUN apt-get update
+
 WORKDIR /data
 COPY . .
 
