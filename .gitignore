@@ -43,4 +43,3 @@ Thumbs.db
 package-lock.json
 .dccache
 .env
-frontend/dist/*
