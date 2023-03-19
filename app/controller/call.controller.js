@@ -140,6 +140,8 @@ exports.makeCall = async (req, res) => {
             if(contact){
                 updateCall.contact = contact._id
             }
+            console.log("Making a Call !!!");
+            console.log(`data : ${updateCall}`);
             await Call.create(updateCall);
             dial.number(phoneNumber);
             res.set('Content-Type', 'text/xml');
