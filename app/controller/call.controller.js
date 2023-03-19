@@ -115,6 +115,7 @@ exports.makeCall = async (req, res) => {
         var checkSetting = await Setting.findOne({number : {$eq: req.body.twilio_number}})
         if(checkSetting){
             var dial = response.dial({
+                record: "record-from-answer",
                 callerId: req.body.twilio_number
             });
 
@@ -141,7 +142,7 @@ exports.makeCall = async (req, res) => {
                 updateCall.contact = contact._id
             }
             console.log("Making a Call !!!");
-            console.log(`data : ${updateCall}`);
+            console.log(`data : ${JSON.stringify(updateCall)}`);
             await Call.create(updateCall);
             dial.number(phoneNumber);
             res.set('Content-Type', 'text/xml');
@@ -263,7 +264,7 @@ exports.incomming = async (req, res) => {
             if(contact){
                 updateCall.contact = contact._id
             }
-            console.log(`data : ${updateCall}`);
+            console.log(`data : ${JSON.stringify(updateCall)}`);
             Call.create(updateCall);
         }
     }catch(error){
