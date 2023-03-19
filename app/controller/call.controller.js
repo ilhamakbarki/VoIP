@@ -126,6 +126,7 @@ exports.makeCall = async (req, res) => {
                 phoneNumber = `+1${phoneNumber}`
             }
             var updateCall = {
+                record: true,
                 sid: req.body.CallSid,
                 user: checkSetting.user,
                 datatype: 'call',
