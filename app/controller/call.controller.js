@@ -243,6 +243,7 @@ exports.incomming = async (req, res) => {
     const VoiceResponse = twilio.twiml.VoiceResponse;
     const response = new VoiceResponse();
     try{
+        console.log("There new Incoming Call !!!");
         var settingCheck = await Setting.findOne({number: {$eq: req.body.To}})
         if(settingCheck){
             const dial = response.dial();
@@ -262,6 +263,7 @@ exports.incomming = async (req, res) => {
             if(contact){
                 updateCall.contact = contact._id
             }
+            console.log(`data : ${updateCall}`);
             Call.create(updateCall);
         }
     }catch(error){
